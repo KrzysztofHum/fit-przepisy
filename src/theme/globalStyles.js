@@ -54,6 +54,25 @@ h5 {
   font-size: 1.25rem;
 }
 
+button {
+  cursor: pointer;
+  appearance: none;
+  color: white;
+  background: #94cc39;
+  border: none;
+  border-radius: 0.25rem;
+  letter-spacing: 1px;
+  padding: 0.375rem 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease-in-out all;
+  text-transform: capitalize;
+  width: 100%;
+}
+button:hover {
+    background: #689C13;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
 ul {
   padding: 0;
   list-style-type: none;

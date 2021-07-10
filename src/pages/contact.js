@@ -35,7 +35,7 @@ export default function Contact() {
               <label htmlFor="message">wiadomość</label>
               <textarea name="message" id="message"></textarea>
             </div>
-            <Button type="submit">Wyślij</Button>
+            <button type="submit">Wyślij</button>
           </form>
         </Article>
       </Main>
@@ -71,23 +71,5 @@ export const Article = styled.article`
   }
   .form-row {
     margin-bottom: 1rem;
-  }
-`
-export const Button = styled.button`
-  cursor: pointer;
-  appearance: none;
-  color: white;
-  background: #645cff;
-  border: none;
-  border-radius: 0.25rem;
-  letter-spacing: 1px;
-  padding: 0.375rem 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease-in-out all;
-  text-transform: capitalize;
-  width: 100%;
-  &:hover {
-    background: #4640b3;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
 `
