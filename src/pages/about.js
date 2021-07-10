@@ -1,0 +1,12 @@
+import React from "react"
+import Layout from "../components/Layout"
+
+import React from "react"
+
+export default function About() {
+  return (
+    <Layout>
+      <h1>O mnie</h1>
+    </Layout>
+  )
+}
