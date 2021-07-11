@@ -4,15 +4,18 @@ import Footer from "./Footer"
 import "normalize.css"
 import "../assets/css/main.css"
 import GlobalStyle from "../theme/globalStyles"
-
+import { ThemeProvider } from "styled-components"
+import { theme } from "../theme/theme"
 
 export default function Layout({ children }) {
   return (
-    <>
-<GlobalStyle/>
-      <Navbar />
-      {children}
-      <Footer />
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Navbar />
+        {children}
+        <Footer />
+      </>
+    </ThemeProvider>
   )
 }

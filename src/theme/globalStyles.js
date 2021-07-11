@@ -58,19 +58,19 @@ button {
   cursor: pointer;
   appearance: none;
   color: white;
-  background: #94cc39;
+  background:  ${({ theme }) => theme.colors.primary1};
   border: none;
   border-radius: 0.25rem;
   letter-spacing: 1px;
   padding: 0.375rem 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease-in-out all;
+  box-shadow: ${({ theme }) => theme.shadows.shadow1};
+   transition: ${({ theme }) => theme.animations.transition};
   text-transform: capitalize;
   width: 100%;
 }
 button:hover {
-    background: #689C13;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: ${({ theme }) => theme.colors.primary2};
+    box-shadow: ${({ theme }) => theme.shadows.shadow2};
   }
 
 ul {
@@ -92,7 +92,7 @@ textarea {
  width: 100%;
     padding: 0.375rem 0.75rem;
     border-radius: 0.25rem;
-    background: #fafbfc;
+    background: ${({ theme }) => theme.colors.grey0};
     border-color: transparent;
     border: 1px solid #dbe0ea;
 }
@@ -101,7 +101,7 @@ textarea {
   height: 7rem;
 }
 ::placeholder {
-  color: #adb3bf;
+  color: ${({ theme }) => theme.colors.grey600};
 }
 form > *:last-child {
   margin-bottom: 0;

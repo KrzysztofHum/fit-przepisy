@@ -67,7 +67,7 @@ export const Article = styled.article`
     border-radius: 0.25rem;
     padding: 2rem 2.5rem;
     margin-bottom: 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: ${({ theme }) => theme.shadows.shadow2};
   }
   .form-row {
     margin-bottom: 1rem;

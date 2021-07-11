@@ -27,7 +27,7 @@ export default function Navbar() {
             Tagi
           </NavLink>
           <NavLink to="/about" activeStyle={{ color: "#94cc39" }}>
-            O Mnie
+            o Mnie
           </NavLink>
           <Contact>
             <ContactLink to="/contact">Kontakt</ContactLink>
@@ -42,16 +42,28 @@ const Nav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (min-width: 992px) {
+    height: 6rem;
+  }
 `
 const NavCenter = styled.div`
   width: 90vw;
   max-width: 1120px;
+  @media (min-width: 992px) {
+    display: flex;
+    align-items: center;
+  }
 `
 const NavHeader = styled.div`
   height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 992px) {
+    padding: 0;
+    margin-right: 2rem;
+    height: auto;
+  }
   img {
     width: 200px;
     margin-left: -6px;
@@ -65,12 +77,20 @@ const NavLinks = styled.div`
   flex-direction: column;
   transition: 0.3s ease-in-out all;
   height: 23.9375rem;
+  @media (min-width: 992px) {
+    height: auto !important;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-width: 100px;
+  }
 `
 const Button = styled.button`
-  /* display: none; */
   padding: 0.15rem 0.75rem;
-  background: #94cc39;
   width: 3rem;
+  @media (min-width: 992px) {
+    display: none;
+  }
   svg {
     font-size: 1.5rem;
   }
@@ -84,38 +104,50 @@ const NavLink = styled(Link)`
   letter-spacing: 1px;
   padding: 1rem 0;
   border-top: 1px solid #cbd3e1;
-  transition: var(--transition);
+  transition: ${({ theme }) => theme.animations.transition};
+  @media (min-width: 992px) {
+    padding: 0;
+    border-top: none;
+    margin-right: 1rem;
+    font-size: 1rem;
+    min-width: 5rem;
+  }
   &.active-link {
     color: #645cff;
   }
 `
 
 const ContactLink = styled(Link)`
-
   cursor: pointer;
   appearance: none;
   color: white;
-  background: #94cc39;
+  background: ${({ theme }) => theme.colors.primary1};
   border: none;
   border-radius: 0.25rem;
   letter-spacing: 1px;
   padding: 0.375rem 0.75rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  transition: 0.3s ease-in-out all;
+  box-shadow: ${({ theme }) => theme.shadows.shadow1};
+  transition: ${({ theme }) => theme.animations.transition};
   text-transform: capitalize;
   width: 100%;
   &:hover {
-    background: #689c13;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: ${({ theme }) => theme.colors.primary2};
+    box-shadow: ${({ theme }) => theme.shadows.shadow2};
   }
 `
 const Contact = styled.div`
+  text-align: center;
   padding: 0;
   border-top: none;
   margin-right: 1rem;
   font-size: 1rem;
   width: 100%;
   justify-content: flex-end;
-  align-items: center;
   margin-right: 0;
+  @media (min-width: 992px) {
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 0;
+  }
 `
