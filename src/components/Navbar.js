@@ -1,10 +1,11 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { FiAlignJustify } from "react-icons/fi"
 import logo from "../assets/images/FitPrzepisy.svg"
 
 export default function Navbar() {
+  const [show, setShow] = useState(false)
   return (
     <Nav>
       <NavCenter>
@@ -12,25 +13,43 @@ export default function Navbar() {
           <Link to="/">
             <img src={logo} alt="fit przepisy" />
           </Link>
-          <Button>
+          <Button onClick={() => setShow(!show)}>
             <FiAlignJustify />
           </Button>
         </NavHeader>
-        <NavLinks>
-          <NavLink to="/" activeStyle={{ color: "#94cc39" }}>
+        <NavLinks show={show}>
+          <NavLink
+            to="/"
+            activeStyle={{ color: "#94cc39" }}
+            onClick={() => setShow(false)}
+          >
             Home
           </NavLink>
-          <NavLink to="/recipes" activeStyle={{ color: "#94cc39" }}>
+          <NavLink
+            to="/recipes"
+            activeStyle={{ color: "#94cc39" }}
+            onClick={() => setShow(false)}
+          >
             Przepisy
           </NavLink>
-          <NavLink to="/tags" activeStyle={{ color: "#94cc39" }}>
+          <NavLink
+            to="/tags"
+            activeStyle={{ color: "#94cc39" }}
+            onClick={() => setShow(false)}
+          >
             Tagi
           </NavLink>
-          <NavLink to="/about" activeStyle={{ color: "#94cc39" }}>
+          <NavLink
+            to="/about"
+            activeStyle={{ color: "#94cc39" }}
+            onClick={() => setShow(false)}
+          >
             o Mnie
           </NavLink>
           <Contact>
-            <ContactLink to="/contact">Kontakt</ContactLink>
+            <ContactLink to="/contact" onClick={() => setShow(false)}>
+              Kontakt
+            </ContactLink>
           </Contact>
         </NavLinks>
       </NavCenter>
@@ -71,12 +90,11 @@ const NavHeader = styled.div`
   }
 `
 const NavLinks = styled.div`
-  height: 0;
+  height: ${props => (props.show ? "383px" : "0")};
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: 0.3s ease-in-out all;
-  height: 23.9375rem;
+  transition: ${({ theme }) => theme.animations.transition};
   @media (min-width: 992px) {
     height: auto !important;
     flex-direction: row;
