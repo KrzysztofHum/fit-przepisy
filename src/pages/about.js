@@ -2,7 +2,8 @@ import React from "react"
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
+import RecipesList from "../components/RecipesList"
 
 export default function About() {
   return (
@@ -33,6 +34,11 @@ export default function About() {
             className="about-img"
           ></StaticImage>
         </Section>
+        <section>
+          <h5>Spójrz na to !</h5>
+          <RecipesList/>
+        </section>
+
       </Main>
     </Layout>
   )
@@ -51,7 +57,7 @@ const Section = styled.section`
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    height: 400px;
+    /* height: 400px; */
     .about-img {
       border-radius: 0.25rem;
       height: 500px;
@@ -80,3 +86,22 @@ const ContactLink = styled(Link)`
   }
 `
 
+
+export const query = graphql`
+  {
+    allContentfulFitPrzepisy(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        makro
+        title
+        cookTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+        id
+      }
+    }
+  }
+`
