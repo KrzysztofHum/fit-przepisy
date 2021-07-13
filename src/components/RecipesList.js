@@ -45,10 +45,11 @@ const RecipeLink = styled(Link)`
     height: 15rem;
     border-radius: 0.25rem;
     @media (min-width: 576px) {
-      height: 10rem;
+      height: 15rem;
     }
     @media (min-width: 992px) {
-      height: 9rem;
+      height: 15rem;
+      width: 25rem;
     }
   }
   h5 {

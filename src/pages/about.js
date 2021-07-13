@@ -5,7 +5,11 @@ import styled from "styled-components"
 import { Link, graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
 
-export default function About() {
+export default function About({
+  data: {
+    allContentfulFitPrzepisy: { nodes: recipes },
+  },
+}) {
   return (
     <Layout>
       <Main>
@@ -34,11 +38,10 @@ export default function About() {
             className="about-img"
           ></StaticImage>
         </Section>
-        <section>
-          <h5>Spójrz na to !</h5>
-          <RecipesList/>
-        </section>
-
+        <RecipeListSection>
+          <h5 className="RecipeListH5">Przepisy warte wypróbowania !</h5>
+          <RecipesList recipes={recipes} />
+        </RecipeListSection>
       </Main>
     </Layout>
   )
@@ -57,7 +60,7 @@ const Section = styled.section`
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    /* height: 400px; */
+    height: 500px;
     .about-img {
       border-radius: 0.25rem;
       height: 500px;
@@ -86,6 +89,12 @@ const ContactLink = styled(Link)`
   }
 `
 
+const RecipeListSection = styled.section`
+  .RecipeListH5 {
+    text-align: center;
+    max-width: 100%;
+  }
+`
 
 export const query = graphql`
   {

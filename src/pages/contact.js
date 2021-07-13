@@ -1,8 +1,11 @@
 import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
+import { Link, graphql } from "gatsby"
+import RecipesList from "../components/RecipesList"
 
-export default function Contact() {
+export default function Contact({ data }) {
+  const recipes = data.allContentfulFitPrzepisy.nodes
   return (
     <Layout>
       <Main>
@@ -39,6 +42,10 @@ export default function Contact() {
           </form>
         </Article>
       </Main>
+      <RecipeListSection>
+        <h5 className="RecipeListH5">Przepisy warte wypróbowania !</h5>
+        <RecipesList recipes={recipes} />
+      </RecipeListSection>
     </Layout>
   )
 }
@@ -71,5 +78,30 @@ export const Article = styled.article`
   }
   .form-row {
     margin-bottom: 1rem;
+  }
+`
+const RecipeListSection = styled.section`
+  .RecipeListH5 {
+    text-align: center;
+    max-width: 100%;
+  }
+`
+
+export const query = graphql`
+  {
+    allContentfulFitPrzepisy(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        makro
+        title
+        cookTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+        id
+      }
+    }
   }
 `
