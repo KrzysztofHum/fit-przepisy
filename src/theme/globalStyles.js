@@ -10,7 +10,9 @@ const GlobalStyle = createGlobalStyle`
 body {
   background: #fafbfc;
   color: #333538;
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+    font-family: ${({ theme }) => theme.fonts.bodyFont[0]};
+
   font-weight: 400;
   line-height: 1.75;
 }
@@ -27,7 +29,7 @@ h4,
 h5 {
   margin: 0;
   margin-bottom: 1.38rem;
-  font-family: "Inconsolata", monospace;
+  font-family: ${({ theme }) => theme.fonts.headingFont[0]};
   font-weight: 400;
   line-height: 1.3;
   text-transform: capitalize;

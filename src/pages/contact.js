@@ -1,14 +1,14 @@
 import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
 
 export default function Contact({ data }) {
   const recipes = data.allContentfulFitPrzepisy.nodes
   return (
     <Layout>
-      <Main>
+      <ContactMain>
         <Article>
           <section>
             <h1> Serdecznie zapraszam do kontaktu</h1>
@@ -25,7 +25,7 @@ export default function Contact({ data }) {
           </section>
         </Article>
         <Article>
-          <form>
+          <form action="https://formspree.io/f/mqkwdpgl" method="POST">
             <div className="form-row">
               <label htmlFor="name">Twoje imie</label>
               <input type="text" name="name" id="name" />
@@ -41,7 +41,7 @@ export default function Contact({ data }) {
             <button type="submit">Wyślij</button>
           </form>
         </Article>
-      </Main>
+      </ContactMain>
       <RecipeListSection>
         <h5 className="RecipeListH5">Przepisy warte wypróbowania !</h5>
         <RecipesList recipes={recipes} />
@@ -50,7 +50,7 @@ export default function Contact({ data }) {
   )
 }
 
-export const Main = styled.main`
+export const ContactMain = styled.main`
   width: 90vw;
   margin: 0 auto;
   max-width: 1120px;

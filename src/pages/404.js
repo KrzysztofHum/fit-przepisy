@@ -5,17 +5,17 @@ import styled from "styled-components"
 const Error = () => {
   return (
     <Layout>
-      <Main>
+      <ErrorMain>
         <section>
           <h1>404</h1>
           <h3>Stronie nie znaleziona</h3>
         </section>
-      </Main>
+      </ErrorMain>
     </Layout>
   )
 }
 
-export const Main = styled.main`
+export const ErrorMain = styled.main`
   text-align: center;
   padding-top: 1rem;
   h1 {
