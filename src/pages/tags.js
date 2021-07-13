@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-
+import SEO from "../components/SEO"
 import { graphql, Link } from "gatsby"
 import setupTags from "../utils/setupTags"
 import styled from "styled-components"
@@ -11,11 +11,12 @@ export default function Tags({ data }) {
   const newTags = setupTags(data.allContentfulFitPrzepisy.nodes)
   return (
     <Layout>
+      <SEO title="Tags" />
       <Main>
         <TagsPage>
           {newTags.map((tag, index) => {
             const [text, value] = tag
-                  const slug = slugify(text, { lower: true })
+            const slug = slugify(text, { lower: true })
             return (
               <LinkRecipe to={`/tags/${slug}`} key={index}>
                 <h5>{text}</h5>
@@ -57,11 +58,11 @@ const LinkRecipe = styled(Link)`
     background: ${({ theme }) => theme.colors.primary2};
   }
   h5 {
-	  margin-bottom: 0;
-	  font-weight: 600;
+    margin-bottom: 0;
+    font-weight: 600;
   }
   p {
-	  margin-bottom: 0;
+    margin-bottom: 0;
   }
 `
 

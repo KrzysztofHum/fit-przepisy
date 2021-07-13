@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { Link, graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
+import SEO from "../components/SEO"
 
 export default function About({
   data: {
@@ -12,6 +13,7 @@ export default function About({
 }) {
   return (
     <Layout>
+      <SEO title="About" />
       <Main>
         <Section>
           <article>

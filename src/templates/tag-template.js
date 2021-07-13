@@ -3,11 +3,13 @@ import { graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
 import Layout from "../components/Layout"
 import styled from "styled-components"
+import SEO from "../components/SEO"
 
 export default function TagTemplate({ data, pageContext }) {
   const recipes = data.allContentfulFitPrzepisy.nodes
   return (
     <Layout>
+      <SEO title={pageContext.tag} />
       <Main>
         <h2>{pageContext.tag}</h2>
         <div>

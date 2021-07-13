@@ -2,10 +2,13 @@ import React from "react"
 import styled from "styled-components"
 import Layout from "../components/Layout"
 import AllRecipies from "../components/AllRecipes"
+import SEO from "../components/SEO"
+
 
 export default function Recipes() {
   return (
     <Layout>
+      <SEO title="fit przepisy"/>
       <Main>
 		  <AllRecipies/>
 	  </Main>

@@ -6,6 +6,7 @@ import { BsClockHistory, BsPeople } from "react-icons/bs"
 import { ImSpoonKnife } from "react-icons/im"
 import Layout from "../components/Layout"
 import slugify from "slugify"
+import SEO from "../components/SEO"
 
 export default function RecipeTemplate({ data }) {
   const {
@@ -21,6 +22,7 @@ export default function RecipeTemplate({ data }) {
   const { tags, instructions, ingredients, tools } = content
   return (
     <Layout>
+      <SEO title={title} description={description} />
       <Main>
         <div>
           <RecipeHero>
@@ -54,7 +56,7 @@ export default function RecipeTemplate({ data }) {
           <RecipeTags>
             Tags:{" "}
             {tags.map((tag, index) => {
-                    const slug = slugify(tag, { lower: true })
+              const slug = slugify(tag, { lower: true })
               return (
                 <Link to={`/tags/${slug}`} key={index}>
                   {tag}

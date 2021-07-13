@@ -3,11 +3,13 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import RecipesList from "../components/RecipesList"
+import SEO from "../components/SEO"
 
 export default function Contact({ data }) {
   const recipes = data.allContentfulFitPrzepisy.nodes
   return (
     <Layout>
+      <SEO title="kontakt" />
       <ContactMain>
         <Article>
           <section>
