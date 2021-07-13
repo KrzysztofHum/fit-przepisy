@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import { graphql, Link } from "gatsby"
 import setupTags from "../utils/setupTags"
 import styled from "styled-components"
+import slugify from "slugify"
 
 export default function Tags({ data }) {
   console.log(data)
@@ -14,8 +15,9 @@ export default function Tags({ data }) {
         <TagsPage>
           {newTags.map((tag, index) => {
             const [text, value] = tag
+                  const slug = slugify(text, { lower: true })
             return (
-              <LinkRecipe to={`/${text}`} key={index}>
+              <LinkRecipe to={`/tags/${slug}`} key={index}>
                 <h5>{text}</h5>
                 <p>Ilość przepisów: {value} </p>
               </LinkRecipe>

@@ -2,9 +2,10 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { BsClockHistory } from "react-icons/bs"
+import { BsClockHistory, BsPeople } from "react-icons/bs"
 import { ImSpoonKnife } from "react-icons/im"
 import Layout from "../components/Layout"
+import slugify from "slugify"
 
 export default function RecipeTemplate({ data }) {
   const {
@@ -12,6 +13,7 @@ export default function RecipeTemplate({ data }) {
     cookTime,
     content,
     makro,
+    serving,
     description: { description },
     image,
   } = data.contentfulFitPrzepisy
@@ -41,14 +43,20 @@ export default function RecipeTemplate({ data }) {
                   <h5>Ilość kcal:</h5>
                   <p>{makro} kcal</p>
                 </article>
+                <article>
+                  <BsPeople />
+                  <h5>Ilość porcji:</h5>
+                  <p>{serving} </p>
+                </article>
               </RecipeIcons>
             </article>
           </RecipeHero>
           <RecipeTags>
             Tags:{" "}
             {tags.map((tag, index) => {
+                    const slug = slugify(tag, { lower: true })
               return (
-                <Link to={`/${tag}`} key={index}>
+                <Link to={`/tags/${slug}`} key={index}>
                   {tag}
                 </Link>
               )
@@ -202,6 +210,7 @@ export const query = graphql`
         description
       }
       makro
+      serving
       image {
         gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
       }
