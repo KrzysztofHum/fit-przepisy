@@ -83,6 +83,8 @@ export const Article = styled.article`
   }
 `
 const RecipeListSection = styled.section`
+  width: 90vw;
+  max-width: 1120px;
   .RecipeListH5 {
     text-align: center;
     max-width: 100%;
